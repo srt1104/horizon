@@ -83,3 +83,7 @@ declare interface CreditCardProps {
   userName: string;
   showBalance?: boolean;
 }
+
+declare interface AuthFormProps {
+  type: "sign-in" | "sign-up";
+}

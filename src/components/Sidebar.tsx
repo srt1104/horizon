@@ -24,7 +24,7 @@ export default function Sidebar({ user }: SidebarProps) {
         </Link>
 
         {sidebarLinks.map((link) => {
-          const isActive = pathname.startsWith(link.route);
+          const isActive = pathname === link.route;
 
           return (
             <Link

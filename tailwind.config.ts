@@ -6,7 +6,15 @@ const config = {
   prefix: "",
   theme: {
     extend: {
+      fontFamily: {
+        inter: "var(--font-inter)",
+        "ibm-plex-serif": "var(--font-ibm-plex-serif)",
+      },
       colors: {
+        black: {
+          1: "#00214F",
+          2: "#344054",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,6 +58,7 @@ const config = {
       boxShadow: {
         chart:
           "0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px 0px rgba(16, 24, 40, 0.06)",
+        "credit-card": "8px 10px 16px 0px rgba(0, 0, 0, 0.05)",
       },
       keyframes: {},
       animation: {},

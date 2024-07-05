@@ -12,6 +12,7 @@ import CustomFormField from "./CustomFormField";
 import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn, signUp } from "@/lib/server/user.actions";
 
 export default function AuthForm({ type }: AuthFormProps) {
   const router = useRouter();
@@ -29,19 +30,18 @@ export default function AuthForm({ type }: AuthFormProps) {
     setIsLoading(true);
 
     try {
-      // sign up with Appwrite & create plaid token
-
       if (type === "sign-up") {
-        // const newUser = await signUp(data);
-        // setUser(newUser);
+        const newUser = await signUp(data);
+        setUser(newUser);
       }
 
       if (type === "sign-in") {
-        // const res = await signIn({
-        //   email: data.email,
-        //   password: data.password,
-        // });
-        // if (res) router.push("/");
+        const res = await signIn({
+          email: data.email,
+          password: data.password,
+        });
+
+        if (res) router.push("/");
       }
     } catch (err) {
       console.error(err);

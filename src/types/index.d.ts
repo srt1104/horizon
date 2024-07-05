@@ -6,6 +6,7 @@ declare type User = {
   dwollaCustomerId: string;
   firstName: string;
   lastName: string;
+  name: string;
   address1: string;
   city: string;
   state: string;
@@ -47,6 +48,24 @@ declare type Transaction = {
   receiverBankId: string;
 };
 
+declare type SignUpParams = {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  postalCode?: string;
+  dateOfBirth?: string;
+  ssn?: string;
+};
+
+declare type SignInParams = {
+  email: string;
+  password: string;
+};
+
 declare interface HeaderBoxProps {
   type?: "title" | "greeting";
   title: string;
@@ -86,4 +105,13 @@ declare interface CreditCardProps {
 
 declare interface AuthFormProps {
   type: "sign-in" | "sign-up";
+}
+
+declare interface MobileNavProps {
+  user: User;
+}
+
+declare interface FooterProps {
+  user: User;
+  type?: "desktop" | "mobile";
 }

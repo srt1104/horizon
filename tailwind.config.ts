@@ -11,6 +11,14 @@ const config = {
         "ibm-plex-serif": "var(--font-ibm-plex-serif)",
       },
       colors: {
+        blue: {
+          25: "#F5FAFF",
+          100: "#D1E9FF",
+          500: "#2E90FA",
+          600: "#1570EF",
+          700: "#175CD3",
+          900: "#194185",
+        },
         sky: {
           1: "#F3F9FF",
         },

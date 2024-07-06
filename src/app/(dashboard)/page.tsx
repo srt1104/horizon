@@ -8,8 +8,9 @@ import { getLoggedInUser } from "@/lib/server/user.actions";
 export default async function Dashboard({
   searchParams: { id, page },
 }: SearchParamProps) {
-  const loggedIn = await getLoggedInUser();
+  const currentPage = Number(page as string) || 1;
 
+  const loggedIn = await getLoggedInUser();
   if (!loggedIn) return;
 
   const accounts = await getAccounts({
@@ -39,6 +40,13 @@ export default async function Dashboard({
             totalCurrentBalance={accounts?.totalCurrentBalance}
           />
         </header>
+
+        <RecentTransactions
+          accounts={accountsData}
+          transactions={account?.transactions}
+          appwriteItemId={appwriteItemId}
+          page={currentPage}
+        />
       </div>
       <RightSidebar
         user={loggedIn}

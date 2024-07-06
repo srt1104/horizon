@@ -106,6 +106,13 @@ declare type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+declare type AccountTypes =
+  | "depository"
+  | "credit"
+  | "loan "
+  | "investment"
+  | "other";
+
 declare interface HeaderBoxProps {
   type?: "title" | "greeting";
   title: string;
@@ -213,4 +220,30 @@ declare interface GetTransactionsProps {
 
 declare interface GetUserInfoProps {
   userId: string;
+}
+
+declare interface RecentTransactionsProps {
+  accounts: Account[];
+  transactions: Transaction[];
+  appwriteItemId: string;
+  page: number;
+}
+
+declare interface BankTabItemProps {
+  account: Account;
+  appwriteItemId?: string;
+}
+
+declare interface BankInfoProps {
+  account: Account;
+  appwriteItemId?: string;
+  type: "full" | "card";
+}
+
+declare interface TransactionTableProps {
+  transactions: Transaction[];
+}
+
+declare interface CategoryBadgeProps {
+  category: string;
 }

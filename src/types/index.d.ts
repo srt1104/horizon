@@ -113,6 +113,12 @@ declare type AccountTypes =
   | "investment"
   | "other";
 
+declare type CategoryCount = {
+  name: string;
+  count: number;
+  totalCount: number;
+};
+
 declare interface HeaderBoxProps {
   type?: "title" | "greeting";
   title: string;
@@ -275,4 +281,8 @@ declare interface BankDropdownProps {
 declare interface PaginationProps {
   page: number;
   totalPages: number;
+}
+
+declare interface CategoryProps {
+  category: CategoryCount;
 }

@@ -26,7 +26,7 @@ declare type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 declare type Transaction = {
@@ -89,6 +89,21 @@ declare type AddFundingSourceParams = {
   dwollaCustomerId: string;
   processorToken: string;
   bankName: string;
+};
+
+declare type Bank = {
+  $id: string;
+  accountId: string;
+  bankId: string;
+  accessToken: string;
+  fundingSourceUrl: string;
+  userId: string;
+  shareableId: string;
+};
+
+declare type SearchParamProps = {
+  params: { [key: string]: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 declare interface HeaderBoxProps {
@@ -166,4 +181,36 @@ declare interface CreateBankAccountProps {
   bankId: string;
   fundingSourceUrl: string;
   shareableId: string;
+}
+
+declare interface GetAccountsProps {
+  userId: string;
+}
+
+declare interface GetBanksProps {
+  userId: string;
+}
+
+declare interface GetInstitutionProps {
+  institutionId: string;
+}
+
+declare interface GetAccountProps {
+  appwriteItemId: string;
+}
+
+declare interface GetBankProps {
+  documentId: string;
+}
+
+declare interface GetTransactionsByBankIdProps {
+  bankId: string;
+}
+
+declare interface GetTransactionsProps {
+  accessToken: string;
+}
+
+declare interface GetUserInfoProps {
+  userId: string;
 }

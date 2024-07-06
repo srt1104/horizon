@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 import {
   createLinkToken,
   exchangePublicToken,
-} from "@/lib/server/user.actions";
+} from "@/lib/server/plaid.actions";
 
 export default function PlaidLink({ user, variant }: PlaidLinkProps) {
   const router = useRouter();

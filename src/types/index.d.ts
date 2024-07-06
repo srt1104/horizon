@@ -247,3 +247,27 @@ declare interface TransactionTableProps {
 declare interface CategoryBadgeProps {
   category: string;
 }
+
+declare interface PaymentTransferFormProps {
+  accounts: Account[];
+}
+
+declare interface GetBankByAccountIdProps {
+  accountId: string;
+}
+
+declare interface CreateTransactionProps {
+  name: string;
+  amount: string;
+  senderId: string;
+  senderBankId: string;
+  receiverId: string;
+  receiverBankId: string;
+  email: string;
+}
+
+declare interface BankDropdownProps {
+  accounts: Account[];
+  setValue?: UseFormSetValue<any>;
+  otherStyles?: string;
+}

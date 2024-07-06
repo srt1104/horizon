@@ -43,6 +43,10 @@ export function encryptId(id: string) {
   return btoa(id);
 }
 
+export function decryptId(id: string) {
+  return atob(id);
+}
+
 export function extractCustomerIdFromUrl(url: string) {
   // Split the URL string by '/'
   const parts = url.split("/");

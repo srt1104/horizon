@@ -23,7 +23,7 @@ export const getUserInfo = async ({ userId }: GetUserInfoProps) => {
 
     return parseStringify(user.documents[0]);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

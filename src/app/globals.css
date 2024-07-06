@@ -252,7 +252,7 @@
   }
 
   .bank-card_content {
-    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-gray-700 bg-bank-gradient px-5 pb-4 pt-5;
+    @apply relative z-10 flex size-full max-w-[228px] flex-col justify-between rounded-l-[20px] bg-bank-gradient px-5 pb-4 pt-5;
   }
 
   .bank-card_icon {
@@ -312,5 +312,17 @@
   /* Auth */
   .auth-asset {
     @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+  }
+
+  .plaidlink-primary {
+    @apply text-16 rounded-lg border border-bank-gradient bg-bank-gradient font-semibold text-white shadow-form;
+  }
+
+  .plaidlink-ghost {
+    @apply flex cursor-pointer items-center justify-center gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start;
+  }
+
+  .plaidlink-default {
+    @apply flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row;
   }
 }

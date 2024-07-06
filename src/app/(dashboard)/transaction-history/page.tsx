@@ -1,4 +1,5 @@
 import HeaderBox from "@/components/HeaderBox";
+import { Pagination } from "@/components/Pagination";
 import TransactionsTable from "@/components/TransactionTable";
 import { getAccount, getAccounts } from "@/lib/server/plaid.actions";
 import { getLoggedInUser } from "@/lib/server/user.actions";
@@ -16,6 +17,17 @@ export default async function TransactionHistory({
   const accountsData = accounts?.data;
   const appwriteItemId = (id as string) || accountsData[0]?.appwriteItemId;
   const account = await getAccount({ appwriteItemId });
+
+  const rowsPerPage = 10;
+  const totalPages = Math.ceil(account?.transactions.length / rowsPerPage);
+
+  const indexOfLastTransaction = currentPage * rowsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
+
+  const currentTransactions = account?.transactions.slice(
+    indexOfFirstTransaction,
+    indexOfLastTransaction
+  );
 
   return (
     <section className="transactions">
@@ -48,7 +60,10 @@ export default async function TransactionHistory({
         </div>
 
         <section className="flex w-full flex-col gap-6">
-          <TransactionsTable transactions={account?.transactions} />
+          <TransactionsTable transactions={currentTransactions} />
+          {totalPages > 1 && (
+            <Pagination totalPages={totalPages} page={currentPage} />
+          )}
         </section>
       </div>
     </section>

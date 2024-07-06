@@ -271,3 +271,8 @@ declare interface BankDropdownProps {
   setValue?: UseFormSetValue<any>;
   otherStyles?: string;
 }
+
+declare interface PaginationProps {
+  page: number;
+  totalPages: number;
+}
